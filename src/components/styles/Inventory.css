@@ -1,0 +1,371 @@
+.inventory-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+  background-color: #f9fafb;
+  min-height: 100vh;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.inventory-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.inventory-header h1 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}
+
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  color: #4b5563;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.back-button:hover {
+  background-color: #f3f4f6;
+  color: #111827;
+}
+
+.add-button {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 16px;
+  background-color: #4a6cf7;
+  color: white;
+  border-radius: 6px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background-color 0.2s;
+}
+
+.add-button:hover {
+  background-color: #3a56d4;
+}
+
+.error-message {
+  background-color: #fee2e2;
+  border-left: 4px solid #dc2626;
+  color: #b91c1c;
+  padding: 12px 16px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.inventory-tools {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.search-filter {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+}
+
+.search-input {
+  flex: 2;
+  padding: 10px 16px;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.category-filter {
+  flex: 1;
+  padding: 10px 16px;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 14px;
+  background-color: white;
+}
+
+/* Archive Policy Highlight */
+.archive-policy {
+  background-color: #e6f2ff;
+  border-radius: 6px;
+  padding: 12px 16px;
+  margin-top: 12px;
+  font-size: 14px;
+  color: #3a56d4;
+  border-left: 4px solid #4a6cf7;
+}
+
+/* Price Range Filter Styles */
+.price-range-filter {
+  background-color: #f9f9f9;
+  padding: 16px;
+  border-radius: 6px;
+  margin-bottom: 16px;
+}
+
+.price-range-filter label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 500;
+  color: #555;
+}
+
+.price-slider-container {
+  position: relative;
+  height: 30px;
+  margin-top: 20px;
+}
+
+.price-slider {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  -webkit-appearance: none;
+  height: 4px;
+  background: none;
+  pointer-events: none;
+  outline: none;
+}
+
+/* Create the single slider track */
+.price-slider-container::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 4px;
+  background: #ddd;
+  border-radius: 2px;
+}
+
+/* Active range between the two thumbs */
+.price-slider-container::after {
+  content: '';
+  position: absolute;
+  left: var(--left-percent, 0%);
+  right: calc(100% - var(--right-percent, 100%));
+  top: 50%;
+  transform: translateY(-50%);
+  height: 4px;
+  background: #4a6cf7;
+  border-radius: 2px;
+  pointer-events: none;
+}
+
+.price-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #4a6cf7;
+  cursor: pointer;
+  pointer-events: auto;
+  border: 2px solid white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.price-slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #4a6cf7;
+  cursor: pointer;
+  pointer-events: auto;
+  border: 2px solid white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.min-price {
+  z-index: 1;
+}
+
+.max-price {
+  z-index: 2;
+}
+
+.export-options {
+  display: flex;
+  gap: 12px;
+}
+
+.export-button {
+  padding: 10px 16px;
+  background-color: #f5f5f5;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.export-button:hover {
+  background-color: #e8e8e8;
+}
+
+.inventory-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.stat-box {
+  background-color: white;
+  border-radius: 6px;
+  padding: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+.stat-number {
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 4px;
+}
+
+.stat-label {
+  font-size: 14px;
+  color: #666;
+  margin: 0;
+}
+
+.inventory-table-container {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+.inventory-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.inventory-table th {
+  background-color: #f9f9f9;
+  padding: 14px 16px;
+  text-align: left;
+  font-weight: 600;
+  color: #333;
+  border-bottom: 1px solid #e0e0e0;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.inventory-table th:hover {
+  background-color: #f0f0f0;
+}
+
+.inventory-table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid #e0e0e0;
+  color: #555;
+}
+
+.inventory-table tr:last-child td {
+  border-bottom: none;
+}
+
+.inventory-table tr:hover td {
+  background-color: #f5f7ff;
+}
+
+.low-stock td {
+  color: #f44336;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.edit-button, .delete-button {
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.edit-button {
+  background-color: #e3f2fd;
+  color: #1976d2;
+  text-decoration: none;
+}
+
+.edit-button:hover {
+  background-color: #bbdefb;
+}
+
+.delete-button {
+  background-color: #ffebee;
+  color: #d32f2f;
+  border: none;
+}
+
+.delete-button:hover {
+  background-color: #ffcdd2;
+}
+
+.loading, .no-data {
+  padding: 40px;
+  text-align: center;
+  color: #666;
+}
+
+.no-data {
+  font-style: italic;
+}
+
+.mongodb-connection {
+  margin-top: 24px;
+  padding: 12px;
+  background-color: #f5f5f5;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.status {
+  font-weight: 600;
+}
+
+.status.success {
+  color: #4caf50;
+}
+
+.status.error {
+  color: #f44336;
+}
+
+@media (max-width: 768px) {
+  .inventory-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .search-filter {
+    flex-direction: column;
+  }
+  
+  .inventory-table th:nth-child(3),
+  .inventory-table td:nth-child(3) {
+    display: none;
+  }
+  
+  .inventory-table th:nth-child(5),
+  .inventory-table td:nth-child(5) {
+    display: none;
+  }
+} 

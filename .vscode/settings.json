@@ -1,0 +1,22 @@
+{
+  "json.schemaDownload.enable": false,
+  "json.validate.enable": true,
+  "json.schemas": [
+    {
+      "fileMatch": ["package.json"],
+      "schema": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "version": { "type": "string" },
+          "private": { "type": "boolean" },
+          "dependencies": { "type": "object" },
+          "devDependencies": { "type": "object" },
+          "scripts": { "type": "object" },
+          "eslintConfig": { "type": "object" },
+          "browserslist": { "type": "object" }
+        }
+      }
+    }
+  ]
+} 
